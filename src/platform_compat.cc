@@ -27,6 +27,7 @@
 #else
 #include <chrono>
 #endif
+#include <chrono>
 
 #include <SDL.h>
 
@@ -365,7 +366,7 @@ bool compat_file_exists(const char* filePath)
 
 unsigned int compat_timeGetTime()
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(FALLOUT_XBOX) // Xbox apps have no winmm
     return timeGetTime();
 #else
     static auto start = std::chrono::steady_clock::now();

@@ -79,6 +79,10 @@
 #include <TargetConditionals.h>
 #endif
 
+#ifdef FALLOUT_XBOX
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 #define HELP_SCREEN_WIDTH (640)
@@ -234,6 +238,9 @@ int gameInitWithOptions(const char* windowTitle, bool isMapper, int font, int fl
     skillsInit();
     statsInit();
 
+#ifdef FALLOUT_XBOX
+    xboxLog("init: party members");
+#endif
     if (partyMembersInit() != 0) {
         debugPrint("Failed on partyMember_init\n");
         return -1;
@@ -247,6 +254,9 @@ int gameInitWithOptions(const char* windowTitle, bool isMapper, int font, int fl
     aiInit();
     inventoryResetDude();
 
+#ifdef FALLOUT_XBOX
+    xboxLog("init: sound");
+#endif
     if (gameSoundInit() != 0) {
         debugPrint("Sound initialization failed.\n");
     }
@@ -256,6 +266,9 @@ int gameInitWithOptions(const char* windowTitle, bool isMapper, int font, int fl
     movieInit();
     debugPrint(">initMovie\t\t");
 
+#ifdef FALLOUT_XBOX
+    xboxLog("init: movies");
+#endif
     if (gameMoviesInit() != 0) {
         debugPrint("Failed on gmovie_init\n");
         return -1;
@@ -294,6 +307,9 @@ int gameInitWithOptions(const char* windowTitle, bool isMapper, int font, int fl
     animationInit();
     debugPrint(">anim_init\t");
 
+#ifdef FALLOUT_XBOX
+    xboxLog("init: scripts");
+#endif
     if (scriptsInit() != 0) {
         debugPrint("Failed on scr_init\n");
         return -1;
@@ -704,6 +720,17 @@ int gameHandleKey(int eventCode, bool isInCombatMode)
         }
         break;
     case KEY_ESCAPE:
+#ifdef FALLOUT_XBOX
+        // Controller B outside combat: cancel aiming / go back to walking (Start opens the options menu).
+        if (xboxPadTakeCancel()) {
+            if (interfaceBarEnabled()) {
+                gameMouseSetMode(GAME_MOUSE_MODE_MOVE);
+            }
+            xboxPadSetSmartCursor(true);
+            break;
+        }
+#endif
+        // fall through
     case KEY_UPPERCASE_O:
     case KEY_LOWERCASE_O:
         // options

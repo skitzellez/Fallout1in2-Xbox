@@ -1,218 +1,145 @@
-# Fallout 2: Community Engine
+<p align="center">
+  <img src="docs/xbox/banner.png" alt="Fallout 1in2 for Xbox" width="800">
+</p>
 
-Fallout 2:CE is a fully working re-implementation of the classic Fallout engine, optimized for a hassle-free experience on multiple platforms, including Windows, Mac, iOS, Android, and Linux.  It provides high resolution support, quality-of-life improvements, and dozens upon dozens of bug fixes.
+<h3 align="center">The original Fallout, rebuilt for the TV and the controller.</h3>
 
-This is a fork of the original Fallout 2:CE project, which is no longer getting regular updates.
+<p align="center">
+  <b>Fallout 1 played inside the Fallout 2 engine, running natively on Xbox Series X|S in Dev Mode.</b><br>
+  No PC emulation and no mouse needed: pick up the controller and walk out of Vault 13.
+</p>
 
-Popular total conversion mods are supported:
- * [Fallout Et Tu](https://github.com/rotators/Fo1in2): Full Support.  Use v2.0+
- * [Fallout: Sonora](https://github.com/NovaRain/Fallout-Sonora-English): Full Support.
- * [Fallout 2 Restoration Project](https://github.com/BGforgeNet/Fallout2_Restoration_Project): Full Support.
- * Fallout of Nevada: Supported with minor tweaks needed.
- * [Olympus 2207](https://olympus2207.com), Resurrection, Yesterday: partially work but not fully supported.
+<p align="center">
+  <a href="https://github.com/skitzellez/Fallout1in2-Xbox/releases/latest"><img alt="Download" src="https://img.shields.io/badge/DOWNLOAD-Fallout%201in2%20for%20Xbox-107C10?style=for-the-badge&logo=xbox&logoColor=white"></a>
+  &nbsp;
+  <a href="#-installation"><img alt="How to install" src="https://img.shields.io/badge/HOW%20TO-INSTALL-0B7DDA?style=for-the-badge"></a>
+  &nbsp;
+  <a href="https://www.patreon.com/Skitzelles"><img alt="Support on Patreon" src="https://img.shields.io/badge/SUPPORT-Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"></a>
+</p>
 
-CE has broad (though not total) compatibility with [Sfall](https://github.com/sfall-team/sfall) scripting extensions.  Many traditional Fallout mods work out of the box, including NPC Armor, Party Orders, FO2Tweaks (we recommend v14.5+), Talking Heads, and many others.
+<p align="center">
+  <a href="https://github.com/skitzellez/Fallout1in2-Xbox/releases"><img alt="Latest release" src="https://img.shields.io/github/v/release/skitzellez/Fallout1in2-Xbox?label=latest&color=107C10&include_prereleases"></a>
+  <a href="https://github.com/skitzellez/Fallout1in2-Xbox/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/skitzellez/Fallout1in2-Xbox/total?color=4CAF50"></a>
+  <a href="https://github.com/skitzellez/Fallout1in2-Xbox/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/skitzellez/Fallout1in2-Xbox?color=F5C518&logo=github"></a>
+  <a href="LICENSE.md"><img alt="License: Sustainable Use (non-commercial)" src="https://img.shields.io/badge/license-non--commercial-blue"></a>
+  <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-orange">
+</p>
 
-## Installation — [Download Latest CE Release](https://github.com/fallout2-ce/fallout2-ce/releases)
+<p align="center">
+  <img src="docs/xbox/gameplay.jpg" alt="Outside Vault 13 on the Xbox, with the Fallout 2 interface" width="900">
+</p>
 
-You *must* own the game to play. Purchase your copy on [GOG](https://www.gog.com/game/fallout_2), [Epic Games](https://store.epicgames.com/p/fallout-2) or [Steam](https://store.steampowered.com/app/38410).
-
-Download CE from the link above, then extract the archive into your game folder. Launch `fallout2-ce.exe` on Windows (or the platform-specific executable) to play. CE has a lot of enhancements that require configuration. See [Configuration](#configuration) for examples.
-
-For detailed instructions on how to play on Mac, Linux, iOS, or Android, see the [Platform-specific instructions](#platform-specific-installation).
-
-## Quality of life benefits over vanilla Fallout
-
-* High resolution support
-* Party members can loot and barter in place of PC
-* Directly equip party members instead of convincing them to use the right equipment.
-* Expanded 2-column inventory, loot screens
-* Expanded 4-row barter screen
-* Expanded AP bar
-* Ctrl-click to quickly move items when bartering, looting, or stealing, and auto-balance caps
-* Music continues playing between maps
-* Auto open doors
-* Integrated "HELP" menu
-* 44.1 kHz stereo sound/music supported, in .ogg and .wav format as well as legacy .acm
-* Last used save slot is remembered
-* You can cancel elevator floor selection using ESC
-* Spiffy ammo meter with burst-mode segmentation
-* Item/Corpse/Container/Critter highlighting (configure using [mods/sfall-mods.ini](https://github.com/sfall-team/sfall/blob/master/artifacts/config_files/sfall-mods.ini))
-
-<table>
+<table align="center">
   <tr>
-    <td align="center">
-    <img src="docs/images/two-column-inventory.jpg" alt="Expanded 2-column inventory" width="360"><br>
-    <sub>Expanded 2-column inventory</sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/companion-equip.gif" alt="Companion equip screen" width="360"><br>
-      <sub>Companion equip screen</sub>
-    </td>
-
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/images/party-member-loot.gif" alt="Party member loot" width="360"><br>
-      <sub>Party member loot</sub>
-    </td>
-    <td align="center">
-      <img src="docs/images/help-menu.gif" alt="Integrated HELP menu" width="360"><br>
-      <sub>Integrated HELP menu</sub>
-    </td>
+    <td align="center" width="33%"><h3>📁 1. Copy</h3>Put your own <b>Fallout</b> and <b>Fallout 2</b> folders on a USB drive.</td>
+    <td align="center" width="33%"><h3>🔌 2. Plug in</h3>Start the app. It finds both games and builds Fallout 1in2 by itself.</td>
+    <td align="center" width="33%"><h3>▶️ 3. Play</h3>RT does the obvious thing. B cancels. Start saves.</td>
   </tr>
 </table>
 
-There are also dozens of small things that just work a little better than they did in the original.  Better pathfinding, fewer graphics glitches, less finicky weapon stacking, and much more.
+<p align="center">
+  <img src="docs/xbox/first-run.jpg" alt="First start on the Xbox: Getting Fallout ready" width="49%">
+  <img src="docs/xbox/setup-tool.png" alt="The optional Windows setup tool" width="35%">
+</p>
+<p align="center"><sub>Left: the first start on the console sets everything up. Right: the optional PC tool does the same on a Windows PC.</sub></p>
 
-## Configuration
+---
 
-The main configuration file is `fallout2.cfg`. This contains original game config as well as new CE settings.
+**Fallout 1in2** by the Rotators team brings the whole of Fallout 1 into the Fallout 2 engine: better
+interface, party orders, fixed bugs, and the full original story. This project runs it on **Fallout 2
+Community Edition**, ported to the Xbox as a native app with full controller play, Xbox sound and
+Direct3D graphics.
 
-Additional settings for screen resolution, UI customization, and map options are now integrated into the main `fallout2.cfg` file (previously part of `f2_res.ini` from Mash's HRP).
+> [!WARNING]
+> **This is a beta.** The whole game is playable, but the controller feel is still being tuned. If something
+> goes wrong, please open an [issue](https://github.com/skitzellez/Fallout1in2-Xbox/issues) and attach the log
+> (see [Reporting a problem](#-reporting-a-problem)).
 
-Here are some important settings in `fallout2.cfg` under the `[screen]` and `[ui]` sections.  See [the example config](https://github.com/fallout2-ce/fallout2-ce/tree/refs/heads/main/files/fallout2.cfg) for a full list of settings.
+> [!IMPORTANT]
+> **No game files are included.** You need your own copies of **Fallout** and **Fallout 2** (Steam, GOG or Epic).
+> The Fallout 1in2 mod and the HQ music are downloaded from their authors' own pages when you set up.
 
-```ini
-[screen]
-resolution_x=1600 ; actual game window size (screen resolution), in pixels
-resolution_y=1080
-windowed=1 ; 0 = fullscreen
-scale=2 ; 1 = original scale, 2 = 2x scale, etc. (e.g. at scale 2 and screen resolution 1920x1080, in-game resolution will be 960x540, thus every pixel is twice as wide and tall)
+## ✨ Features
 
-[ui]
-; Maximum number of columns shown in the main inventory and loot/steal windows (valid range: 1..2)
-inventory_columns=2
+| | |
+|---|---|
+| 🎮 **Made for the controller** | A smart cursor: over a person or door it becomes "talk / use", over an enemy in combat it becomes the crosshair. LB / RB jump straight to the next thing on screen. |
+| 📦 **Native Xbox app** | No PC emulator in between. Starts in seconds, runs at full speed. |
+| 🧰 **Sets itself up** | First start finds your games on the USB drive, fetches Fallout 1in2 and builds the game folder. No PC needed. |
+| 🎵 **HQ music** | The remastered soundtrack is added when the console is online. |
+| ✨ **Extra details** | Footprints in the sand, animated force fields and a new Vault 15 entrance. |
+| 💾 **Saves on your drive** | Saves live next to the game on the USB drive, named after the town you saved in. |
 
-; Set to 1 to expand the barter/trade window vertically, adding a 4th item slot per side (requires ce.dat)
-expand_barter_window=1
+## 📋 Requirements
 
-[qol]
-; Allow opening party member inventory from the long-press context menu.
-party_trade_from_menu=1
+- An **Xbox Series X or Series S** in **Developer Mode** (the free Xbox Dev Mode app from the Microsoft Store).
+- Your own **Fallout** and **Fallout 2** (Steam, GOG or Epic).
+- A **USB drive** (FAT32, exFAT or NTFS) with about 3 GB free.
+- Internet on the console for the first start, **or** a Windows PC to run the setup tool.
 
-; Allow switching to companions' inventories in loot screens (and barter, in the future)
-party_loot_and_barter=1
-```
+## 🚀 Installation
 
-**Recommendations:**
-- **Desktops**: Use any size you see fit.
-- **Tablets**: Set these values to logical resolution of your device, for example iPad Pro 11 is 1668x2388 (pixels), but its logical resolution is 834x1194 (points).
-- **Mobile phones**: Set height to 480, calculate width according to your device screen (aspect) ratio, for example Samsung S21 is 20:9 device, so the width should be 480 * 20 / 9 = 1067.
+1. On the console, open **Dev Home** and turn on the **Device Portal** (Remote Access Settings).
+2. Download **Fallout1in2_x64.appx** from [Releases](https://github.com/skitzellez/Fallout1in2-Xbox/releases/latest)
+   and install it from the Device Portal (**Add** under My games & apps).
+3. In **Dev Home**, highlight the app, press **Menu → View details**, and set **App type** to **Game**.
+4. Get the games onto a USB drive, one of two ways:
+   - **The easy way:** copy your **Fallout** and **Fallout 2** game folders to the top of the USB drive
+     (for example `E:\Fallout` and `E:\Fallout 2`). The console does the rest on first start.
+   - **With a Windows PC:** download **Fallout1in2-Setup.zip**, unzip it and run **Fallout 1in2 Setup.exe**.
+     It finds your games, lets you pick the drive and extras, and builds a ready-to-play `Fallout` folder.
+5. Plug the drive into the Xbox and start **Fallout 1in2**.
 
-In time this stuff will receive an in-game interface, right now you have to do it manually. To see all currently working fallout2.cfg settings, just run the game once and quit. It will be automatically updated with defaults for every supported setting.
-*Note*: Use of the IFACE_BAR settings requires the `f2_res.dat` file, which contains graphical assets. Various versions are available, but one compatible with the above settings can be found here: [f2_res.dat](https://github.com/fallout2-ce/fallout2-ce/raw/refs/heads/main/files/f2_res.dat)
+## 🎮 Controls
 
-Note: There are a few settings that are still configured in `ddraw.ini`.  They will be migrated to cfg over time.
+| Button | Action |
+|---|---|
+| Left stick | Move the cursor (it slows down over things, so it is easy to stop on them) |
+| **RT** or **A** | Action: walk, talk, use, attack. The cursor picks the right one by itself |
+| **B** | Cancel / close. In combat: cancel aiming, or **end your turn** |
+| X | Change cursor mode by hand (walk, use, look, attack) |
+| LB / RB | Jump the cursor to the previous / next person, item or door (enemies only in combat) |
+| LT | Skilldex |
+| Y | Inventory |
+| Right stick | Scroll the map |
+| Click right stick | Centre the view on your character |
+| D-pad up / down | Character sheet / world map |
+| D-pad left / right | Swap hands / weapon mode (single, burst, aimed) |
+| View | Pip-Boy |
+| Start | Options: save, load, settings, quit |
+| Click left stick | Quick save |
 
-## Platform-specific installation
+## 🐞 Reporting a problem
 
-### Windows
+The app keeps a log in its own folder. Open the **Device Portal → File explorer → LocalState → Skitzelles →
+Fallout1in2** and attach `fallout_xbox_log.txt` to a new
+[issue](https://github.com/skitzellez/Fallout1in2-Xbox/issues), with a few words about what happened.
 
-[Download](https://github.com/fallout2-ce/fallout2-ce/releases) and unzip into your `Fallout2` folder. Launch the game using `fallout2-ce.exe`.
+## 🛠️ Building from source
 
-### Linux
+The Xbox changes live on this repo's `xbox` branch and are marked `FALLOUT_XBOX` / "Xbox port" in the source.
+Build scripts are in [`xbox/`](xbox): `build_sdl2compat.sh`, `build_fallout.sh` and `package.sh <version>`
+(MSYS2 UCRT64, the Xbox SDL3 build, and Windows SDK signing tools). The PC setup tool is in
+[`xbox/setup`](xbox/setup) (`dotnet build -c Release`).
 
-- Use Windows installation as a base - it contains data assets needed to play. Copy `Fallout2` folder somewhere, for example `/home/john/Desktop/Fallout2`.
+## 🔗 Related projects
 
-- Alternatively you can extract the needed files from the GoG installer:
+- **[Game Vault](https://github.com/skitzellez/xbox-game-vault):** the all-in-one game library for Xbox Dev Mode.
 
-```console
-$ sudo apt install innoextract
-$ innoextract ~/Downloads/setup_fallout_2_1.02_gog_v1_\(77792\).exe -d Fallout2
-```
+## 🙏 Credits
 
-- Download the Linux release archive, extract `fallout2-ce` and `ce.dat`, and copy them into this folder.
+- **[Fallout 1in2 / Fallout et tu](https://github.com/rotators/Fo1in2)** by the Rotators team: the mod that makes all of this possible.
+- **[Fallout 2 Community Edition](https://github.com/fallout2-ce/fallout2-ce)** by Alexander Batalov and contributors: the engine (original README: [README-fallout2-ce.md](README-fallout2-ce.md)).
+- **[Fallout 2 HQ music](https://github.com/BGforgeNet/Fallout2-HQ-music)** by BGforge.
+- **SDL**, **sdl2-compat**, zlib, LodePNG, stb_vorbis and fpattern (licences in the app's `licenses` folder).
+- Xbox port, controller play, setup tool and artwork by **Skitzelles**.
 
-- Run `./fallout2-ce`.
+## 📜 Licence
 
-### macOS
+This is a **modified version** of Fallout 2 Community Edition, shared under its
+[Sustainable Use License](LICENSE.md): free, for non-commercial use only. The Xbox changes, setup tool and
+artwork are © 2026 Skitzelles under the same non-commercial terms.
 
-> **NOTE**: macOS 10.11 (El Capitan) or higher is required. Runs natively on Intel-based Macs and Apple Silicon.
-
-- Use Windows installation as a base - it contains data assets needed to play. Copy `Fallout2` folder somewhere, for example `/Applications/Fallout2`.
-
-- Alternatively you can use Fallout 2 from Macplay/The Omni Group as a base - you need to extract game assets from the original bundle. Mount CD/DMG, right click `Fallout 2` -> `Show Package Contents`, navigate to `Contents/Resources`. Copy `GameData` folder somewhere, for example `/Applications/Fallout2`.
-
-- Or if you're a Terminal user and have Homebrew installed you can extract the needed files from the GoG installer.  **Note**: You must use "Offline backup game installer", not the main game installer.
-
-```console
-$ brew install innoextract
-$ innoextract ~/Downloads/setup_fallout_2_1.02_gog_v1_\(77792\).exe -d fallout2
-$ mv fallout2 /Applications/Fallout2
-```
-
-- [Download](https://github.com/fallout2-ce/fallout2-ce/releases) and copy `Fallout II Community Edition.app` to this folder.
-
-- Run `Fallout II Community Edition.app`.
-
-### Android
-
-> **NOTE**: Fallout 2 was designed with mouse in mind. There are many controls that require precise cursor positioning, which is not possible with fingers. Current control scheme resembles trackpad usage:
-- One finger moves mouse cursor around.
-- Tap one finger for left mouse click.
-- Tap two fingers for right mouse click (switches mouse cursor mode).
-- Move two fingers to scroll current view (map view, worldmap view, inventory scrollers).
-
-> **NOTE**: From Android standpoint release and debug builds are different apps. Both apps require their own copy of game assets and have their own savegames. This is intentional. As a gamer just stick with release version and check for updates.
-
-- Download the Android [release](https://github.com/fallout2-ce/fallout2-ce/releases), which contains an .apk file and `ce.dat`.
-
-- Use Windows installation as a base - it contains data assets needed to play. Copy `Fallout2` folder to your device, for example to `Downloads`. You need `master.dat`, `critter.dat`, `patch000.dat`, and `data` folder. Watch for file names - keep (or make) them lowercased (see [Configuration](#configuration)).  Copy `ce.dat` into this folder.
-
-- Copy `fallout2-ce.apk` from the release to your device. Open it with file explorer, follow instructions (install from unknown source).
-
-- When you run the game for the first time it will immediately present file picker. Select the folder from the first step. Wait until this data is copied. A loading dialog will appear, just wait for about 30 seconds. If you're installing total conversion mod or localized version with a large number of unpacked resources in `data` folder it can take up to 20 minutes. Once copied, the game will start automatically.
-
-### iOS
-
-> **NOTE**: See Android note on controls.
-
-- Download `fallout2-ce.ipa`. Use sideloading applications ([AltStore](https://altstore.io/) or [Sideloadly](https://sideloadly.io/)) to install it to your device. Alternatively you can always build from source with your own signing certificate.
-
-- Run the game once. You'll see error message saying "Couldn't find/load text fonts". This step is needed for iOS to expose the game via File Sharing feature.
-
-- Use Finder (macOS Catalina and later) or iTunes (Windows and macOS Mojave or earlier) to copy `master.dat`, `critter.dat`, `patch000.dat`, `ce.dat`, and `data` folder to "Fallout 2" app ([how-to](https://support.apple.com/HT210598)). Watch for file names - keep (or make) them lowercased (see [Configuration](#configuration)).
-
--
-
-**Controls on iPad:**
-
-- One-finger tap → left click; hold → left button held.
-- Two-finger tap → right click (cycles cursor mode between walk and attack).
-- One-finger drag → scroll map / windows.
-- Two-finger drag → mouse wheel.
-- **Three-finger swipe down → ESC** (opens options / main menu).
-- **Four-finger long press → F6** (quicksave). Hold four fingers on the screen for about half a second.
-- **Three-finger long press → hold Shift** (highlights interactable objects — containers, doors, items — while held).
-- Taps on the HUD (interface bar / end-turn / end-combat buttons) act as direct touches so small buttons are easy to hit without aiming.
-- A Bluetooth keyboard works for everything else (numbered dialog choices, load game, etc.).
-
-### Browser
-
-> **NOTE**: WebAssembly build with emscripten
-```
-docker run --rm -v $(pwd):/src emscripten/emsdk:3.1.74 sh -c 'git config --global --add safe.directory "*" && mkdir -p build && cd build && emcmake cmake ../ -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain/Emscripten.cmake && emmake make'
-```
-- Demo available at https://github.com/ololoken/fallout2-ce-ems.git
-
-
-## Contributing
-
-For build instructions and contributor notes, see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-Integrating Sfall goodies is the top priority. Quality of life updates are OK too.  In any case open up an issue with your suggestion or to notify other people that something is being worked on.
-
-For current sfall compatibility status and the remaining work needed to close gaps, see [SFALL_COMPATIBILITY.md](SFALL_COMPATIBILITY.md).
-
-## For modders
-
-* Robust (though not 100%) Sfall opcode and hook support
-* .ogg/.wav support for map music
-* .png support for static assets (must be 8bit indexed)
-* .zip support for .dat archives
-* Working BIS mapper
-
-## License
-
-The source code is this repository is available under the [Sustainable Use License](LICENSE.md).
+Fallout is a trademark of Bethesda Softworks LLC; Xbox is a trademark of Microsoft Corporation. This free fan
+project is not made, approved or endorsed by Bethesda Softworks, ZeniMax Media, Interplay or Microsoft. They
+are named only to say which games it works with and where it runs.

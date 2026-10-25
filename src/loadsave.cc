@@ -2713,6 +2713,13 @@ static int _GetComment(int slot)
         strncpy(description, _LSData[slot].description, LOAD_SAVE_DESCRIPTION_LENGTH);
     } else {
         memset(description, '\0', LOAD_SAVE_DESCRIPTION_LENGTH);
+#ifdef FALLOUT_XBOX
+        // Xbox: usually no keyboard, so a new save is named after the place; Done saves it at once.
+        char* city = mapGetCityName(gMapHeader.index);
+        if (city != nullptr && strncmp(city, "ERROR", 5) != 0) {
+            strncpy(description, city, LOAD_SAVE_DESCRIPTION_LENGTH - 1);
+        }
+#endif
     }
 
     int rc;

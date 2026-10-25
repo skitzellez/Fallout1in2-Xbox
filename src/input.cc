@@ -22,6 +22,10 @@
 #include "win32.h"
 #include "window_manager.h"
 
+#ifdef FALLOUT_XBOX
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 typedef struct InputEvent {
@@ -999,6 +1003,11 @@ void _GNW95_process_message()
     KeyboardData keyboardData;
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
+#ifdef FALLOUT_XBOX
+        if (xboxPadHandleEvent(&e)) {
+            continue;
+        }
+#endif
         switch (e.type) {
         case SDL_MOUSEMOTION:
         case SDL_MOUSEBUTTONDOWN:

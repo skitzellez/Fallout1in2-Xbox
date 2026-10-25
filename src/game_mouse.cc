@@ -40,6 +40,10 @@
 #include "tile.h"
 #include "window_manager.h"
 
+#ifdef FALLOUT_XBOX
+#include "xbox_assist.h"
+#endif
+
 namespace fallout {
 
 enum ScrollableDirections : int {
@@ -535,6 +539,10 @@ void gameMouseRefresh()
     if (!gGameMouseInitialized) {
         return;
     }
+
+#ifdef FALLOUT_XBOX
+    xboxAssistTick();
+#endif
 
     int mouseX;
     int mouseY;

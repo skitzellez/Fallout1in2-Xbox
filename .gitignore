@@ -412,3 +412,7 @@ AGENTS.md
 CLAUDE.md
 GEMINI.md
 opencode.json
+# Xbox port build output
+/build-xbox/
+/xbox/setup/obj/
+/xbox/setup/bin/

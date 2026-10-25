@@ -393,7 +393,26 @@ if(MINGW)
     )
 endif()
 
-if(WIN32)
+option(FALLOUT_XBOX "Build the Xbox (UWP, Dev Mode) app: controller support, game folder on USB, SDL3 start" OFF)
+
+if(FALLOUT_XBOX)
+    target_compile_definitions(${EXECUTABLE_NAME} PUBLIC FALLOUT_XBOX)
+    target_link_libraries(${EXECUTABLE_NAME} ole32 winhttp)
+    target_include_directories(${EXECUTABLE_NAME} PRIVATE "src" "tools")
+    target_sources(${EXECUTABLE_NAME} PUBLIC
+        "src/xbox_assist.cc"
+        "src/xbox_assist.h"
+        "src/xbox_audio.cc"
+        "src/xbox_audio.h"
+        "src/xbox_firstrun.cc"
+        "src/xbox_firstrun.h"
+        "tools/dat_archive.cc"
+        "tools/fo1_dat_lzss.cc"
+        "src/xbox_audio.h"
+        "src/xbox_pad.cc"
+        "src/xbox_pad.h"
+    )
+elseif(WIN32)
     target_link_libraries(${EXECUTABLE_NAME}
         winmm
     )

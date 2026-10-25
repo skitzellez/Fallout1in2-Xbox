@@ -1,0 +1,31 @@
+Fallout 1in2 for Xbox - notices
+================================
+
+This is a free, non-commercial fan project. It is not made, approved or endorsed by Bethesda Softworks,
+ZeniMax Media, Interplay or Microsoft. Fallout is a trademark of Bethesda Softworks LLC; Xbox is a trademark
+of Microsoft Corporation. They are named only to say which games this works with and where it runs.
+
+No game files are included. You need your own copies of Fallout and Fallout 2.
+
+THE ENGINE - MODIFIED VERSION
+This app contains a MODIFIED version of Fallout 2 Community Edition
+(https://github.com/fallout2-ce/fallout2-ce, by Alexander Batalov and contributors), used under the
+Sustainable Use License (licenses/fallout2-ce-LICENSE.md): free, non-commercial distribution only.
+Changes by Skitzelles for the Xbox: controller support and aiming help, Xbox sound output (XAudio2),
+Direct3D drawing, finding the game on a USB drive, the first-run setup screen, and save names.
+The changes are marked "Xbox port" / FALLOUT_XBOX in the source code.
+
+DOWNLOADED AT SETUP, NOT INCLUDED
+- Fallout 1in2 / Fallout et tu by the Rotators team: https://github.com/rotators/Fo1in2
+- Fallout HQ music by BGforge: https://github.com/BGforgeNet/Fallout2-HQ-music
+These are fetched from their own GitHub release pages on the player's request. They belong to their authors
+and are not part of this app.
+
+OTHER SOFTWARE INSIDE (licence texts in the licenses folder)
+- SDL 3 (Xbox build) and sdl2-compat - zlib licence
+- zlib - zlib licence
+- LodePNG - zlib licence
+- stb_vorbis - MIT / public domain
+- fpattern - MIT licence
+
+Copyright (c) 2026 Skitzelles for the Xbox changes, the setup tool and the artwork.

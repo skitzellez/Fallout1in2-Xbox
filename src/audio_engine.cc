@@ -7,6 +7,11 @@
 
 #include <SDL.h>
 
+#ifdef FALLOUT_XBOX
+#include "xbox_audio.h"
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 static constexpr int kAudioEngineTargetSampleRate = 44100;
@@ -133,6 +138,19 @@ bool audioEngineInit(int soundBufferCount)
     desiredSpec.samples = 1024;
     desiredSpec.callback = audioEngineMixin;
 
+#ifdef FALLOUT_XBOX
+    // Xbox: SDL's audio device never opens in Xbox apps; the mix plays through XAudio2 (xbox_audio.cc).
+    gAudioEngineSpec = desiredSpec;
+    gAudioEngineSpec.silence = 0;
+    if (!xboxAudioStart(desiredSpec.freq, desiredSpec.channels, audioEngineMixin)) {
+        gAudioEngineSoundBuffers.reset();
+        audioEngineSoundBufferCount = 0;
+        return false;
+    }
+    gAudioEngineDeviceId = 1;
+    return true;
+#endif
+
     int allowedChanges = SDL_AUDIO_ALLOW_FREQUENCY_CHANGE
         | SDL_AUDIO_ALLOW_FORMAT_CHANGE
         | SDL_AUDIO_ALLOW_SAMPLES_CHANGE;
@@ -144,7 +162,13 @@ bool audioEngineInit(int soundBufferCount)
         return false;
     }
 
+#ifdef FALLOUT_XBOX
+    xboxLog("audio: device %d, %d Hz, %d channels", (int)gAudioEngineDeviceId, gAudioEngineSpec.freq, gAudioEngineSpec.channels);
+#endif
     SDL_PauseAudioDevice(gAudioEngineDeviceId, 0);
+#ifdef FALLOUT_XBOX
+    xboxLog("audio: started");
+#endif
 
     return true;
 }
@@ -152,7 +176,9 @@ bool audioEngineInit(int soundBufferCount)
 void audioEngineExit()
 {
     if (audioEngineIsInitialized()) {
+#ifndef FALLOUT_XBOX
         SDL_CloseAudioDevice(gAudioEngineDeviceId);
+#endif
         gAudioEngineDeviceId = -1;
 
         gAudioEngineSoundBuffers.reset();
@@ -163,14 +189,22 @@ void audioEngineExit()
 void audioEnginePause()
 {
     if (audioEngineIsInitialized()) {
+#ifdef FALLOUT_XBOX
+        xboxAudioPause(true);
+#else
         SDL_PauseAudioDevice(gAudioEngineDeviceId, 1);
+#endif
     }
 }
 
 void audioEngineResume()
 {
     if (audioEngineIsInitialized()) {
+#ifdef FALLOUT_XBOX
+        xboxAudioPause(false);
+#else
         SDL_PauseAudioDevice(gAudioEngineDeviceId, 0);
+#endif
     }
 }
 

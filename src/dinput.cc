@@ -6,6 +6,10 @@
 #include "svga.h"
 #include "win32.h"
 
+#ifdef FALLOUT_XBOX
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 static int gMouseWheelDeltaX = 0;
@@ -58,6 +62,13 @@ bool mouseDeviceInitMode()
     // Mouse sensitivity settings can only apply in relative mode.
 
     bool wantsRelativeMode = gProgramIsActive && (screenIsExclusiveFullscreen() || settings.screen.mouse_lock);
+
+#ifdef FALLOUT_XBOX
+    // Xbox: the cursor belongs to the game (moved by the controller); there is no OS mouse to follow.
+    SDL_SetRelativeMouseMode(SDL_TRUE);
+    mouseRelativeMode = true;
+    return true;
+#endif
 
     if (wantsRelativeMode) {
         mouseRelativeMode = true;

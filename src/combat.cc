@@ -50,6 +50,10 @@
 #include "trait.h"
 #include "window_manager.h"
 
+#ifdef FALLOUT_XBOX
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 #define CALLED_SHOT_WINDOW_Y (20)
@@ -3281,6 +3285,19 @@ static int _combat_input()
         if (gDude->data.critter.combat.ap <= 0 && _combat_free_move <= 0) {
             break;
         }
+
+#ifdef FALLOUT_XBOX
+        // Controller B in combat: cancel aiming first, otherwise end the turn.
+        if (keyCode == KEY_ESCAPE && xboxPadTakeCancel()) {
+            if (!xboxPadSmartCursor() && gameMouseGetMode() == GAME_MOUSE_MODE_CROSSHAIR) {
+                gameMouseSetMode(GAME_MOUSE_MODE_MOVE);
+                xboxPadSetSmartCursor(true);
+                keyCode = -1;
+            } else {
+                keyCode = KEY_SPACE;
+            }
+        }
+#endif
 
         if (keyCode == KEY_SPACE) {
             break;

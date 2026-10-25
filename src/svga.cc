@@ -23,6 +23,10 @@
 #include "window_manager.h"
 #include "window_manager_private.h"
 
+#ifdef FALLOUT_XBOX
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 static bool createRenderer(int width, int height);
@@ -162,9 +166,14 @@ int _init_vesa_mode(int width, int height)
 int _GNW95_init_window(int width, int height, WindowMode mode, int scale)
 {
     if (gSdlWindow == nullptr) {
+#ifdef FALLOUT_XBOX
+        // Xbox: no OpenGL driver; SDL draws with Direct3D, which is all a 2D game needs.
+        Uint32 windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
+#else
         SDL_SetHint(SDL_HINT_RENDER_DRIVER, "opengl");
 
         Uint32 windowFlags = SDL_WINDOW_OPENGL | SDL_WINDOW_ALLOW_HIGHDPI;
+#endif
 
         if (mode == WindowMode::Fullscreen) {
             windowFlags |= SDL_WINDOW_FULLSCREEN;
@@ -174,6 +183,9 @@ int _GNW95_init_window(int width, int height, WindowMode mode, int scale)
 
         gSdlWindow = SDL_CreateWindow(gProgramWindowTitle, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width * scale, height * scale, windowFlags);
         if (gSdlWindow == nullptr) {
+#ifdef FALLOUT_XBOX
+            xboxLog("SDL_CreateWindow %dx%d failed: %s", width * scale, height * scale, SDL_GetError());
+#endif
             return -1;
         }
 
@@ -186,6 +198,15 @@ int _GNW95_init_window(int width, int height, WindowMode mode, int scale)
             return -1;
         }
     }
+#ifdef FALLOUT_XBOX
+    else if (gSdlRenderer == nullptr) {
+        // the first-run screen (xbox_firstrun.cc) made the window: the game only needs its renderer
+        if (!createRenderer(width, height)) {
+            destroyRenderer();
+            return -1;
+        }
+    }
+#endif
 
     return 0;
 }
@@ -362,8 +383,20 @@ static bool createRenderer(int width, int height)
 {
     gSdlRenderer = SDL_CreateRenderer(gSdlWindow, -1, 0);
     if (gSdlRenderer == nullptr) {
+#ifdef FALLOUT_XBOX
+        xboxLog("SDL_CreateRenderer failed: %s", SDL_GetError());
+#endif
         return false;
     }
+#ifdef FALLOUT_XBOX
+    SDL_RendererInfo rendererInfo;
+    if (SDL_GetRendererInfo(gSdlRenderer, &rendererInfo) == 0) {
+        int outputWidth = 0;
+        int outputHeight = 0;
+        SDL_GetRendererOutputSize(gSdlRenderer, &outputWidth, &outputHeight);
+        xboxLog("renderer %s, game %dx%d on screen %dx%d", rendererInfo.name, width, height, outputWidth, outputHeight);
+    }
+#endif
 
     if (SDL_RenderSetLogicalSize(gSdlRenderer, width, height) != 0) {
         return false;

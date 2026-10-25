@@ -15,6 +15,10 @@
 #include "touch.h"
 #include "window_manager.h"
 
+#ifdef FALLOUT_XBOX
+#include "xbox_pad.h"
+#endif
+
 namespace fallout {
 
 static void mousePrepareDefaultCursor();
@@ -598,6 +602,19 @@ void _mouse_info()
         x = (int)(x * gMouseSensitivity);
         y = (int)(y * gMouseSensitivity);
     }
+
+#ifdef FALLOUT_XBOX
+    // the controller's own speed, not scaled by the mouse sensitivity setting
+    unsigned char padLeft = 0;
+    unsigned char padRight = 0;
+    xboxPadMouse(&x, &y, &padLeft, &padRight);
+    if (padLeft) {
+        buttons |= MOUSE_STATE_LEFT_BUTTON_DOWN;
+    }
+    if (padRight) {
+        buttons |= MOUSE_STATE_RIGHT_BUTTON_DOWN;
+    }
+#endif
 
     _mouse_simulate_input(x, y, buttons);
 

@@ -1,5 +1,6 @@
 #include "options.h"
 
+#include <math.h>
 #include <algorithm>
 
 #include "art.h"
